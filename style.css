@@ -1,0 +1,16 @@
+.board {
+  display: grid;
+  grid-template: 50px 50px 50px / 50px 50px 50px;
+}
+
+.board > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  user-select: none;
+}
+
+.currentTurn {
+  user-select: none;
+}

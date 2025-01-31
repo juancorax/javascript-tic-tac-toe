@@ -8,5 +8,31 @@
     <script src="./script.js" defer></script>
   </head>
 
-  <body></body>
+  <body>
+    <div class="board"></div>
+
+    <p class="currentTurn"></p>
+
+    <dialog class="gameStartForm">
+      <form>
+        <div>
+          <label for="playerOneName">Player 1 Name:</label>
+          <input type="text" id="playerOneName" />
+        </div>
+
+        <div>
+          <label for="playerTwoName">Player 2 Name:</label>
+          <input type="text" id="playerTwoName" />
+        </div>
+
+        <button class="playButton">Play</button>
+      </form>
+    </dialog>
+
+    <dialog class="gameEnd">
+      <p class="results"></p>
+
+      <button class="restartButton">Restart</button>
+    </dialog>
+  </body>
 </html>
