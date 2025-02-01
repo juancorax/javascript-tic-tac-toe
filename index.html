@@ -9,30 +9,32 @@
   </head>
 
   <body>
-    <div class="board"></div>
+    <div class="board-container">
+      <div class="board"></div>
 
-    <p class="currentTurn"></p>
+      <p class="current-turn"></p>
+    </div>
 
-    <dialog class="gameStartForm">
+    <dialog class="game-start-form">
       <form>
         <div>
-          <label for="playerOneName">Player 1 Name:</label>
-          <input type="text" id="playerOneName" />
+          <label for="player-one-name">Player 1 Name:</label>
+          <input type="text" id="player-one-name" />
         </div>
 
         <div>
-          <label for="playerTwoName">Player 2 Name:</label>
-          <input type="text" id="playerTwoName" />
+          <label for="player-two-name">Player 2 Name:</label>
+          <input type="text" id="player-two-name" />
         </div>
 
-        <button class="playButton">Play</button>
+        <button class="play-button">Play</button>
       </form>
     </dialog>
 
-    <dialog class="gameEnd">
+    <dialog class="game-end">
       <p class="results"></p>
 
-      <button class="restartButton">Restart</button>
+      <button class="restart-button">Restart</button>
     </dialog>
   </body>
 </html>

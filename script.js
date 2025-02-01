@@ -44,8 +44,8 @@ const game = (function () {
     thereIsAWinner = false;
 
     if (!(playerOne && playerTwo)) {
-      const playerOneName = document.querySelector("#playerOneName").value;
-      const playerTwoName = document.querySelector("#playerTwoName").value;
+      const playerOneName = document.querySelector("#player-one-name").value;
+      const playerTwoName = document.querySelector("#player-two-name").value;
 
       if (!playerOneName || !playerTwoName) {
         alert("The players' names must not be empty...");
@@ -56,13 +56,14 @@ const game = (function () {
       playerTwo = createPlayer(playerTwoName, "O");
 
       gameStartForm.close();
+      gameStartForm.classList.toggle("show");
     }
 
     currentPlayer = Math.random() < 0.5 ? playerOne : playerTwo;
     turns = 9;
 
     const board = document.querySelector(".board");
-    const currentTurnParagraph = document.querySelector(".currentTurn");
+    const currentTurnParagraph = document.querySelector(".current-turn");
 
     board.innerHTML = "";
 
@@ -149,9 +150,7 @@ const game = (function () {
   const gameOver = (winner = null) => {
     thereIsAWinner = true;
 
-    const gameEndDialog = document.querySelector(".gameEnd");
     const resultsParagraph = document.querySelector(".results");
-    const restartButton = document.querySelector(".restartButton");
 
     if (winner === null) {
       resultsParagraph.textContent = `It's a tie!`;
@@ -159,21 +158,18 @@ const game = (function () {
       resultsParagraph.textContent = `${winner.getName()} is the winner!`;
     }
 
-    restartButton.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      game.start();
-      gameEndDialog.close();
-    });
-
     gameEndDialog.showModal();
+    gameEndDialog.classList.toggle("show");
   };
 
   return { start };
 })();
 
-const gameStartForm = document.querySelector(".gameStartForm");
-const playButton = document.querySelector(".playButton");
+const gameStartForm = document.querySelector(".game-start-form");
+const playButton = document.querySelector(".play-button");
+
+const gameEndDialog = document.querySelector(".game-end");
+const restartButton = document.querySelector(".restart-button");
 
 playButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -181,4 +177,14 @@ playButton.addEventListener("click", (event) => {
   game.start();
 });
 
+restartButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  game.start();
+
+  gameEndDialog.close();
+  gameEndDialog.classList.toggle("show");
+});
+
 gameStartForm.showModal();
+gameStartForm.classList.toggle("show");

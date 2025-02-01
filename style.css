@@ -1,6 +1,29 @@
+:root {
+  --font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console,
+    monospace;
+  --font-size: 20px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .board {
   display: grid;
-  grid-template: 50px 50px 50px / 50px 50px 50px;
+  grid-template: repeat(3, 100px) / repeat(3, 100px);
 }
 
 .board > div {
@@ -11,6 +34,28 @@
   user-select: none;
 }
 
-.currentTurn {
+.current-turn,
+.results {
   user-select: none;
+}
+
+.game-start-form,
+.game-end {
+  top: -50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+
+.game-start-form.show,
+.game-end.show {
+  top: 0;
+  opacity: 1;
+  pointer-events: all;
+}
+
+button,
+input {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
 }
